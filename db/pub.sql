@@ -16,7 +16,7 @@ CREATE TABLE beers (
 
 CREATE TABLE kegs (
     id SERIAL PRIMARY KEY,
-    beer_id INT NOT NULL REFERENCES beers(id),
     fill_level INT,
-    capacity INT NOT NULL
+    capacity INT NOT NULL,
+    beer_id INT NOT NULL REFERENCES beers(id)
 );
