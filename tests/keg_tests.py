@@ -17,4 +17,12 @@ class TestKeg(unittest.TestCase):
         result = self.keg1.beer.name
         self.assertEqual("Pale Ale",result)
 
+    def test_has_capacity(self):
+        result = self.keg1.capacity
+        self.assertEqual(80,result)
+
+    def test_has_fill_level(self):
+        result = self.keg1.fill_level
+        self.assertEqual(80,result)
+    
     
