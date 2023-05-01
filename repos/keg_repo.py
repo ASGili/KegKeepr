@@ -28,9 +28,9 @@ def select(id):
     results = run_sql(sql,values)
 
     if results:
-        result = results[0]
-        beer = beer_repo.select(result['beer_id'])
-        keg = Keg(beer,result['capacity'],result['cost'],result['price'],result['id'])
+        row = results[0]
+        beer = beer_repo.select(row['beer_id'])
+        keg = Keg(beer,row['capacity'],row['cost'],row['price'],row['id'])
     return keg
 
 def select_all():
@@ -38,15 +38,13 @@ def select_all():
     sql = "SELECT * FROM kegs"
     results = run_sql(sql)
 
-    for result in results:
-        beer = beer_repo.select(result['beer_id'])
-        keg = Keg(beer,result['capacity'],result['cost'],result['price'],result['id'])
+    for row in results:
+        beer = beer_repo.select(row['beer_id'])
+        keg = Keg(beer,row['capacity'],row['cost'],row['price'],row['id'])
         kegs.append(keg)
     return kegs
 
-def update_price(new_price,id_of_keg):
-    sql = "UPDATE kegs SET price= %s WHERE id = %s"
-    values = [new_price,id_of_keg]
-    run_sql(sql,values)
-
-    
+def update(keg):
+    sql = "UPDATE kegs SET (fill_level, capacity, cost, price, beer_id) = (%s,%s,%s,%s,%s) WHERE id = %s"
+    values= [keg.fill_level,keg.capacity,keg.cost,keg.price,keg.beer.id,keg.id]
+    run_sql(sql, values)

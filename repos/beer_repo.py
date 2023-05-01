@@ -26,9 +26,9 @@ def select(id):
     values = [id]
     results = run_sql(sql,values)
     if results:
-        result = results[0]
-        brewery = brew_repo.select(result['brewery_id'])
-        beer = Beer(result['name'],result['abv'],brewery,result['id'])
+        row = results[0]
+        brewery = brew_repo.select(row['brewery_id'])
+        beer = Beer(row['name'],row['abv'],brewery,row['id'])
     return beer
 
 def select_all():

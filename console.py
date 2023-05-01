@@ -31,7 +31,3 @@ keg3 = Keg(beer2,80,5,10)
 keg_repo.save(keg1)
 keg_repo.save(keg2)
 keg_repo.save(keg3)
-
-print(keg1.price)
-keg_repo.update_price(11,keg_repo.select(keg1.id).id)
-print(keg_repo.select(keg1.id).price)
