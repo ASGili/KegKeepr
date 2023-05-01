@@ -6,6 +6,8 @@ def delete_all():
     run_sql(sql)
 
 def save(brewery):
-    sql = "INSERT INTO breweries (name) VALUES %s RETURNING id"
+    sql = "INSERT INTO breweries (name) VALUES (%s) RETURNING id"
     values = [brewery.name]
     result = run_sql(sql,values)
+    brewery.id = result[0]['id']
+    return brewery
