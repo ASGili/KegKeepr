@@ -10,6 +10,11 @@ def delete_all():
     sql = "DELETE FROM kegs"
     run_sql(sql)
 
+def delete(id):
+    sql="DELETE FROM kegs WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
 def save(keg):
     sql = "INSERT INTO kegs (beer_id,fill_level,capacity,cost,price) VALUES (%s, %s, %s, %s, %s) RETURNING id"
     values = [keg.beer.id,keg.fill_level,keg.capacity,keg.cost,keg.price]
@@ -28,3 +33,20 @@ def select(id):
         keg = Keg(beer,result['capacity'],result['cost'],result['price'],result['id'])
     return keg
 
+def select_all():
+    kegs = []
+    sql = "SELECT * FROM kegs"
+    results = run_sql(sql)
+
+    for result in results:
+        beer = beer_repo.select(result['beer_id'])
+        keg = Keg(beer,result['capacity'],result['cost'],result['price'],result['id'])
+        kegs.append(keg)
+    return kegs
+
+def update_price(new_price,id_of_keg):
+    sql = "UPDATE kegs SET price= %s WHERE id = %s"
+    values = [new_price,id_of_keg]
+    run_sql(sql,values)
+
+    

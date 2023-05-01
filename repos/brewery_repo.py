@@ -8,6 +8,11 @@ def delete_all():
     sql = "DELETE FROM breweries"
     run_sql(sql)
 
+def delete(id):
+    sql="DELETE FROM breweries WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
 def save(brewery):
     sql = "INSERT INTO breweries (name) VALUES (%s) RETURNING id"
     values = [brewery.name]
@@ -32,3 +37,8 @@ def select_all():
         brewery = Brewery(row['name'],row['id'])
         breweries.append(brewery)
     return breweries
+
+def update(brewery):
+    sql = "UPDATE breweries SET (name) = (%s) WHERE id = %s"
+    values= [brewery.name ,brewery.id]
+    run_sql(sql, values)

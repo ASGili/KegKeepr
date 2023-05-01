@@ -9,6 +9,11 @@ def delete_all():
     sql = "DELETE FROM beers"
     run_sql(sql)
 
+def delete(id):
+    sql="DELETE FROM beers WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
 def save(beer):
     sql = "INSERT INTO beers (name, abv, brewery_id) VALUES (%s, %s, %s) RETURNING id"
     values = [beer.name,beer.abv,beer.brewery.id]
@@ -34,3 +39,8 @@ def select_all():
         brewery = brew_repo.select(row['brewery_id'])
         beers = Beer(row['name'],row['abv'],brewery,row['id'])
     return beers
+
+def update(beer):
+    sql = "UPDATE beers SET (name, abv, brewery_id) = (%s, %s, %s) WHERE id = %s"
+    values= [beer.name,beer.abv,beer.brewery.id,beer.id]
+    run_sql(sql, values)
