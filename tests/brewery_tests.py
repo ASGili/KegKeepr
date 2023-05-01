@@ -8,7 +8,7 @@ class TestBrewery(unittest.TestCase):
         self.brewery2 = Brewery("Moonwake")
 
     def test_has_name(self):
-        result = self.rewery1.name
+        result = self.brewery1.name
         self.assertEqual("Newbarns",result)
 
     
