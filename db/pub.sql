@@ -11,12 +11,14 @@ CREATE TABLE beers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     abv FLOAT,
-    brewery_id INT NOT NULL REFERENCES breweries(id)
+    brewery_id INT NOT NULL REFERENCES breweries(id) ON DELETE CASCADE
 );
 
 CREATE TABLE kegs (
     id SERIAL PRIMARY KEY,
     fill_level INT,
     capacity INT NOT NULL,
-    beer_id INT NOT NULL REFERENCES beers(id)
+    cost INT,
+    price INT,
+    beer_id INT NOT NULL REFERENCES beers(id) ON DELETE CASCADE
 );

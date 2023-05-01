@@ -6,3 +6,6 @@ class Keg:
         self.cost = purchase_cost
         self.price = selling_price
         self.id = id
+    
+    def sell_pint(self):
+        self.fill_level -= 1
