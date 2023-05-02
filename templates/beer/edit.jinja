@@ -34,14 +34,14 @@
             <input name="abv" type="text" value="{{chosen_beer.abv}}"/>
             
         <p><label>Brewery</label>
-            <select name="brewery_id" id="brewery_id"></p>
+            <select name="brewery_id" id="brewery_id">
             {% for brewery in breweries%}
             <option value="{{brewery.id}}"
             {% if brewery.id == chosen_beer.brewery.id %}
             selected
             {% endif %}
             >{{brewery.name}}</option>
-            {% endfor %}</select>
+            {% endfor %}</select></p>
 
         <input type="submit" value="Update Beer">
         <input type="hidden" name="beer_id" value="{{chosen_beer.id}}">

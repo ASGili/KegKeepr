@@ -1,6 +1,13 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-
-
+{% for keg in kegs %}
+<section class="keg_box">
+    <p>Beer Name: {{keg.beer.name}}, Keg {{keg.id}}</p>
+    <p>Current Stock (pints): {{keg.fill_level}}</p>
+    <p>Capacity: {{keg.capacity}}</p>
+    <p>Purchase cost: £{{keg.cost}}</p>
+    <p>Price per pint: £{{keg.price}}</p>
+</section>
+{% endfor %}
 {% endblock %}

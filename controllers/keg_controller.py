@@ -1,6 +1,6 @@
-import repos.beer_repo as beer_repo
-import repos.brewery_repo as brew_repo
 import repos.keg_repo as keg_repo
+import repos.brewery_repo as brew_repo
+import repos.beer_repo as beer_repo
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
@@ -13,9 +13,32 @@ def home():
 @keg_blueprint.route("/keg/")
 def edit():
     kegs = keg_repo.select_all()
-    return render_template("keg/edit.jinja",kegs=kegs)
+    beers = beer_repo.select_all()
+    return render_template("keg/edit.jinja",kegs=kegs,beers=beers)
 
 @keg_blueprint.route("/keg/all/")
 def inventory():
     kegs = keg_repo.select_all()
     return render_template("keg/inventory.jinja",kegs=kegs)
+
+@keg_blueprint.route("/keg/", methods=["POST"])
+def redirect_to_edit():
+    keg_id = request.form["keg"]
+    return redirect("/keg/" + keg_id + "/edit/")
+
+@keg_blueprint.route("/keg/<id>/edit/")
+def edit_page(id):
+    kegs = keg_repo.select_all()
+    keg = keg_repo.select(id)
+    beers = beer_repo.select_all()
+    return render_template("/keg/edit.jinja",kegs=kegs,chosen_keg=keg,beers=beers)
+
+@keg_blueprint.route("/keg/", methods=["POST"])
+def redirect_to_delete():
+    keg_id = request.form["keg"]
+    return redirect("/keg/" + keg_id + "/delete/")
+
+@keg_blueprint.route("/keg/<id>/delete/", methods=["POST"])
+def delete(id):
+    keg_repo.delete(id)  
+    return redirect("/keg/")
