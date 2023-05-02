@@ -21,14 +21,16 @@
         </select>
         </p>   
         <p><label>Fill Level</label>  
-        <input name="fill" type="text" value=""/></p>
+        <input name="fill" type="text"/></p>
         <p><label>Capacity</label>  
-        <input name="capacity" type="text" value=""/></p>
+        <input name="capacity" type="text"/></p>
         <p><label>Cost</label>  
-        <input name="cost" type="text" value=""/></p>
+        <input name="cost" type="text"/></p>
         <p><label>Price</label>  
-        <input name="price" type="text" value=""/></p>
+        <input name="price" type="text"/></p>
+        <input type="hidden" name="keg_id"/>
         <input type="submit" value="Add new keg">
+
 </form>
 {% endif %}
 
@@ -40,20 +42,21 @@
     <option type="text" 
     {%if beer.id == chosen_keg.beer.id %}
     selected
-    {% endif }
+    {% endif %}
     value="{{beer.id}}">{{beer.name}}</option>
     {% endfor %}
     </select>
     </p>   
     <p><label>Fill Level</label>  
-    <input name="fill" type="text" value=""/></p>
+    <input name="fill" type="text" value="{{chosen_keg.fill_level}}"/></p>
     <p><label>Capacity</label>  
-    <input name="capacity" type="text" value=""/></p>
+    <input name="capacity" type="text" value="{{chosen_keg.capacity}}"/></p>
     <p><label>Cost</label>  
-    <input name="cost" type="text" value=""/></p>
+    <input name="cost" type="text" value="{{chosen_keg.cost}}"/></p>
     <p><label>Price</label>  
-    <input name="price" type="text" value=""/></p>
+    <input name="price" type="text" value="{{chosen_keg.price}}"/></p>
     <input type="submit" value="Update keg">
+    <input type="hidden" name="keg_id" value="{{chosen_keg.id}}">
 </form>
 <form action="/keg/{{chosen_keg.id}}/delete/" method="post">
 <input name="name" type="submit" value="Delete keg">

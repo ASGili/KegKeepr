@@ -30,7 +30,7 @@ def select(id):
     if results:
         row = results[0]
         beer = beer_repo.select(row['beer_id'])
-        keg = Keg(beer,row['capacity'],row['cost'],row['price'],row['id'])
+        keg = Keg(beer,row['fill_level'],row['capacity'],row['cost'],row['price'],row['id'])
     return keg
 
 def select_all():
@@ -40,7 +40,7 @@ def select_all():
 
     for row in results:
         beer = beer_repo.select(row['beer_id'])
-        keg = Keg(beer,row['capacity'],row['cost'],row['price'],row['id'])
+        keg = Keg(beer,row['fill_level'],row['capacity'],row['cost'],row['price'],row['id'])
         kegs.append(keg)
     return kegs
 

@@ -16,19 +16,19 @@
     <label>Brewery Name</label>  
         {% if not chosen_brewery %}
         <input name="name" type="text"/>
-        <input type="submit" value="Save Brewery">
+        <input type="submit" value="Save brewery">
         <input type="hidden" name="brewery_id">
         {% endif %}        
         {% if chosen_brewery %}
         <input name="name" type="text"
         value="{{chosen_brewery.name}}">
         <input type="hidden" name="brewery_id" value="{{chosen_brewery.id}}">
-        <input type="submit" value="Update Brewery">
+        <input type="submit" value="Update brewery">
         {% endif %}
 </form>
 {% if chosen_brewery %}
 <form action="/brew/{{chosen_brewery.id}}/delete/" method="post">
-<input name="name" type="submit" value="Delete Brewery">
+<input name="name" type="submit" value="Delete brewery">
 </form>
 {% endif %}
 

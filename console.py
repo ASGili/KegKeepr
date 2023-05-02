@@ -24,9 +24,9 @@ beer2 = Beer("Pale Ale",3.5,brewery1)
 beer_repo.save(beer1)
 beer_repo.save(beer2)
 
-keg1 = Keg(beer1,80,5,10)
-keg2 = Keg(beer1,40,5,10)
-keg3 = Keg(beer2,80,5,10)
+keg1 = Keg(beer1,80,80,5,10)
+keg2 = Keg(beer1,40,40,5,10)
+keg3 = Keg(beer2,80,80,5,10)
 
 keg_repo.save(keg1)
 keg_repo.save(keg2)

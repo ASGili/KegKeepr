@@ -8,6 +8,12 @@
     <p>Capacity: {{keg.capacity}}</p>
     <p>Purchase cost: £{{keg.cost}}</p>
     <p>Price per pint: £{{keg.price}}</p>
+
+{% if keg.fill_level in range(1,5) %}
+<span>The stock level of this beer is low!</span>
+{% elif keg.fill_level < 1 %}
+<span>This beer is out of stock!</span>
+{% endif %}
 </section>
 {% endfor %}
 {% endblock %}
