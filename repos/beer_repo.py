@@ -37,7 +37,8 @@ def select_all():
     rows = run_sql(sql)
     for row in rows:
         brewery = brew_repo.select(row['brewery_id'])
-        beers = Beer(row['name'],row['abv'],brewery,row['id'])
+        beer = Beer(row['name'],row['abv'],brewery,row['id'])
+        beers.append(beer)
     return beers
 
 def update(beer):

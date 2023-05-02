@@ -9,22 +9,21 @@
     {% endfor %}
 </select>
 <input type="submit"/>
-<p>Or create a new brewery here:</p>
 </form>
 
-
+<p>Or create a new brewery here:</p>
 <form action="/brew/new/" method="post"> 
     <label>Brewery Name</label>  
         {% if not chosen_brewery %}
         <input name="name" type="text"/>
-        <input type="submit" value="Save Name">
+        <input type="submit" value="Save Brewery">
         <input type="hidden" name="brewery_id">
         {% endif %}        
         {% if chosen_brewery %}
         <input name="name" type="text"
         value="{{chosen_brewery.name}}">
         <input type="hidden" name="brewery_id" value="{{chosen_brewery.id}}">
-        <input type="submit" value="Update Name">
+        <input type="submit" value="Update Brewery">
         {% endif %}
 </form>
 {% if chosen_brewery %}

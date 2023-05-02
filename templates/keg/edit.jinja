@@ -1,6 +1,26 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+<form action="/keg/" method="post">
+<label for="keg">Choose a keg to edit:</label>
+<select name="keg" id="keg">
+    {% for keg in kegs%}
+<option value="{{keg.id}}">{{keg.name}}</option>
+    {% endfor %}
+</select>
+<input type="submit"/>
+</form>
+<p>Or create a new keg here:</p>
+<form action="/keg/new/" method="post">    
+        <label>Keg Name</label>  
+        <input name="name" type="text" value=""/>
+        <input type="submit" value="Update keg">
+</form>
+{% if chosen_keg %}
+<form action="/keg/{{chosen_keg.id}}/delete/" method="post">
+<input name="name" type="submit" value="Delete keg">
+</form>
+{% endif %}
 
 
 {% endblock %}
