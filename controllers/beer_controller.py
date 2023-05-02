@@ -5,3 +5,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
 beer_blueprint = Blueprint("beer", __name__)
+
+@beer_blueprint.route("/beer/")
+def edit():
+    return render_template("beer/edit.jinja")

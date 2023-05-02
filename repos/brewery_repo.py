@@ -39,6 +39,6 @@ def select_all():
     return breweries
 
 def update(brewery):
-    sql = "UPDATE breweries SET (name) = (%s) WHERE id = %s"
+    sql = "UPDATE breweries SET name = %s WHERE id = %s"
     values= [brewery.name ,brewery.id]
     run_sql(sql, values)

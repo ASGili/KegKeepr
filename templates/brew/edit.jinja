@@ -1,0 +1,38 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<form action="/brew/" method="post">
+<label for="brewery">Choose a brewery to edit:</label>
+<select name="brewery" id="brewery">
+    {% for brewery in breweries%}
+<option value="{{brewery.id}}">{{brewery.name}}</option>
+    {% endfor %}
+</select>
+<input type="submit"/>
+<p>Or create a new brewery here:</p>
+</form>
+
+
+<form action="/brew/new/" method="post"> 
+    <label>Brewery Name</label>  
+        {% if not chosen_brewery %}
+        <input name="name" type="text"/>
+        <input type="submit" value="Save Name">
+        <input type="hidden" name="brewery_id">
+        {% endif %}        
+        {% if chosen_brewery %}
+        <input name="name" type="text"
+        value="{{chosen_brewery.name}}">
+        <input type="hidden" name="brewery_id" value="{{chosen_brewery.id}}">
+        <input type="submit" value="Update Name">
+        {% endif %}
+</form>
+{% if chosen_brewery %}
+<form action="/brew/{{chosen_brewery.id}}/delete/" method="post">
+<input name="name" type="submit" value="Delete Brewery">
+</form>
+{% endif %}
+
+
+
+{% endblock %}
