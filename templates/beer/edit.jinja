@@ -23,7 +23,8 @@
         {% for brewery in breweries%}
         <option value="{{brewery.id}}">{{brewery.name}}</option>
         {% endfor %}</select>
-        <input type="submit" value="Save beer">
+        
+        <p><input type="submit" value="Save beer"></p>
         <input type="hidden" name="beer_id">
         {% endif %}        
         
@@ -43,9 +44,9 @@
             {% endif %}
             >{{brewery.name}}</option>
             {% endfor %}</select></p>
-
-        <input type="submit" value="Update beer">
         <input type="hidden" name="beer_id" value="{{chosen_beer.id}}">
+        <p><input type="submit" value="Update beer"></p>
+
 </form>
 <form action="/beer/{{chosen_beer.id}}/delete/" method="post">
 <input name="name" type="submit" value="Delete beer">
