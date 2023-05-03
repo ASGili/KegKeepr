@@ -1,20 +1,26 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+<div id="grid">
 {% for keg in kegs %}
-<section class="keg_box">
-    <div><p>Beer Name: {{keg.beer.name}}, Keg {{keg.id}}</p>
+
+<div class="keg_box">
+    <div><p>Beer/Keg: {{keg.beer.name}}, Keg {{keg.id}}</p>
     <p>Current Stock (pints): {{keg.fill_level}}</p>
     <p>Capacity: {{keg.capacity}}</p>
     <p>Purchase cost: £{{keg.cost}}</p>
     <p>Price per pint: £{{keg.price}}</p>
+    </div>
+<div id="warning">
+    {% if keg.fill_level in range(1,5) %} 
+    <span>The stock level of this beer is low!</span>
+    {% elif keg.fill_level < 1 %}
+    <span>This beer is out of stock!</span>
+    {% elif keg.fill_level > 5 %}
+    <span></span>
+    {% endif %}
 </div>
-<div>
-{% if keg.fill_level in range(1,5) %} 
-<span>The stock level of this beer is low!</span>
-{% elif keg.fill_level < 1 %}
-<span>This beer is out of stock!</span>
-{% endif %}</div>
-</section>
+</div>
 {% endfor %}
+</div>
 {% endblock %}

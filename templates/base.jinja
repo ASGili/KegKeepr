@@ -11,6 +11,7 @@
 <section class="banner">
 <a href="/">Keg Keepr.</a>
 </section>
+<img id="head_photo" src="{{ url_for('static', filename='beer-kegs.jpg') }}" alt="a photo of some kegs">
 </header>
 
 {% block content%}
@@ -18,7 +19,8 @@
 {%endblock %}
 </body>
 <footer>
-    <p>&copy; 2023 Aric Gilinsky. All rights reserved.</p>
+    <div><span>Powered by Flask and coffee.</span></div>
+    <div><p>&copy; 2023 Aric Gilinsky. All rights reserved.</p></div>
 </footer>
 
 </html>

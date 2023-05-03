@@ -1,18 +1,20 @@
 body {
-    background-color: darkkhaki;
+    background-color: rgb(238, 211, 9);
 }
 
 header {
     display: flex;
     align-items: center;
+    margin-bottom: 25px;
 
 }
 
 footer{
     display: flex;
-    justify-content: flex-end;
-    margin-top: 100px;
+    justify-content: space-between;
+    margin-top: 50px;
     font-family: 'Times New Roman', Times, serif;
+    align-items: center;
 }
 
 ul {
@@ -24,11 +26,10 @@ ul {
     font-style: italic;
     font-size: 72px;
     font-variant: normal;
-    color: red
 }
 
 .banner a {
-    color:red
+    color:rgb(0, 115, 255)
 }
 
 .action-links {
@@ -50,7 +51,22 @@ flex-direction: column;
 
 .keg_box {
     display: flex;
+    padding: 10px;
     border: 15px solid black;
     align-items: center;
     justify-content: flex-start;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#warning {
+    width: 30%;
+}
+
+#head_photo {
+    height: 100px;
+    margin-left: 35px;
 }
