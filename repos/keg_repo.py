@@ -35,7 +35,7 @@ def select(id):
 
 def select_all():
     kegs = []
-    sql = "SELECT * FROM kegs"
+    sql = "SELECT * FROM kegs ORDER BY id"
     results = run_sql(sql)
 
     for row in results:

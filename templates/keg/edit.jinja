@@ -1,7 +1,8 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<form action="/keg/" method="post">
+<div class="text_size">
+<form class="align_form" action="/keg/" method="post">
 <label for="keg">Choose a keg to edit:</label>
 <select name="keg" id="keg">
     {% for keg in kegs%}
@@ -62,6 +63,6 @@
 <input name="name" type="submit" value="Delete keg">
 </form>
 {% endif %}
-
+</div>
 
 {% endblock %}

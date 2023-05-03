@@ -1,6 +1,7 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+<div class="text_size">
 <div id="grid">
 {% for keg in kegs %}
 
@@ -13,14 +14,17 @@
     </div>
 <div id="warning">
     {% if keg.fill_level in range(1,5) %} 
+    <span id="big_warn">&#x2757;</span><br>
     <span>The stock level of this beer is low!</span>
     {% elif keg.fill_level < 1 %}
+    <span id="big_warn">&#x274C;</span><br>
     <span>This beer is out of stock!</span>
     {% elif keg.fill_level > 5 %}
-    <span></span>
+    <span> </span>
     {% endif %}
 </div>
 </div>
 {% endfor %}
+</div>
 </div>
 {% endblock %}

@@ -33,7 +33,7 @@ def select(id):
 
 def select_all():
     beers = []
-    sql = "SELECT * FROM beers"
+    sql = "SELECT * FROM beers ORDER BY id"
     rows = run_sql(sql)
     for row in rows:
         brewery = brew_repo.select(row['brewery_id'])
