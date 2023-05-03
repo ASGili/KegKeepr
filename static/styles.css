@@ -1,0 +1,56 @@
+body {
+    background-color: darkkhaki;
+}
+
+header {
+    display: flex;
+    align-items: center;
+
+}
+
+footer{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+ul {
+    padding: 0px;
+}
+
+.banner {
+    margin-left: 18%;
+    font-style: italic;
+    font-size: 72px;
+    font-variant: normal;
+    color: red
+}
+
+.banner a {
+    color:red
+}
+
+.action-links {
+    margin:10px;
+    margin-left: 20%;
+    padding-left: 16px;
+}
+
+button {
+    margin:10px;
+    width:320px;
+    margin-left: 26px;
+}
+
+.links{
+display: flex;
+flex-direction: column;
+}
+
+.keg_box {
+    display: flex;
+    border: 15px solid black;
+    align-items: center;
+    justify-content: flex-start;
+}

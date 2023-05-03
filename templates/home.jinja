@@ -1,13 +1,17 @@
+
+
 {% extends 'base.jinja' %}
 
 {% block content %}
-<section>
-    <a href="/brew/">Click here to Create/Edit breweries.</a>
+<div class="links">
+<section class="action-links">
+    <a href="/brew/"><button>Click here to Create/Edit breweries.</button></a>
 </section>
-<section>
-    <a href="/beer/">Click here to Create/Edit beers.</a>
+<section class="action-links">
+    <a href="/beer/"><button>Click here to Create/Edit beers.</button></a>
 </section>
-<section>
-    <a href="/keg/">Click here to Create/Edit individual kegs.</a>
+<section class="action-links">
+    <a href="/keg/"><button>Click here to Create/Edit individual kegs.</button></a>
 </section>
+</div>
 {% endblock %}
