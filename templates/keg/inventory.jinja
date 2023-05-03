@@ -13,7 +13,8 @@
     <p>Price per pint: £{{keg.price}}</p>
     </div>
 <div id="warning">
-    {% if keg.fill_level in range(1,5) %} 
+    {% if keg.fill_level in range(1,6) %} 
+
     <span id="big_warn">&#x2757;</span><br>
     <span>The stock level of this beer is low!</span>
     {% elif keg.fill_level < 1 %}
@@ -22,6 +23,7 @@
     {% elif keg.fill_level > 5 %}
     <span id="big_warn">&#9989;	</span>
     <span>This beer is available.</span>
+
     {% endif %}
 </div>
 </div>
