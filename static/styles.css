@@ -6,6 +6,7 @@ header {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    font-size: 22px;
 
 }
 
@@ -22,8 +23,9 @@ ul {
 }
 
 .banner {
-    margin-left: 18%;
+    margin-left: 15%;
     font-style: italic;
+    text-decoration: underline;
     font-size: 72px;
     font-variant: normal;
 }
