@@ -20,7 +20,8 @@ def edit():
 @keg_blueprint.route("/keg/all/")
 def inventory():
     kegs = keg_repo.select_all()
-    return render_template("keg/inventory.jinja",kegs=kegs)
+    breweries = brew_repo.select_all()
+    return render_template("keg/inventory.jinja",kegs=kegs,breweries=breweries)
 
 @keg_blueprint.route("/keg/", methods=["POST"])
 def redirect_to_edit():

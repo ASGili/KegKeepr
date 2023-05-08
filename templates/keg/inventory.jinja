@@ -1,12 +1,13 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<div class="text_size">
 <div id="grid">
 {% for keg in kegs %}
 
 <div class="keg_box">
-    <div><p>Beer/Keg: {{keg.beer.name}}, Keg {{keg.id}}</p>
+    <div>
+    <p>Beer: {{keg.beer.name}}, Keg {{keg.id}}</p>
+    <p>Brewery: {{keg.beer.brewery.name}}</p>
     <p>Current Stock (pints): {{keg.fill_level}}</p>
     <p>Capacity: {{keg.capacity}}</p>
     <p>Purchase cost: £{{keg.cost}}</p>
@@ -28,6 +29,5 @@
 </div>
 </div>
 {% endfor %}
-</div>
 </div>
 {% endblock %}
