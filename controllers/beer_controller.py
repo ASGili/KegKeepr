@@ -11,7 +11,7 @@ beer_blueprint = Blueprint("beer", __name__)
 def edit_master():
     breweries = brew_repo.select_all()
     beers = beer_repo.select_all()
-    return render_template("beer/edit.jinja",beers=beers,breweries=breweries)
+    return render_template("beer/edit.jinja",beers=beers,breweries=breweries, chosen_beer= None)
 
 @beer_blueprint.route("/beer/", methods=["POST"])
 def redirect_to_edit():

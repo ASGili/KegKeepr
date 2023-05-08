@@ -15,7 +15,7 @@ def home():
 def edit():
     kegs = keg_repo.select_all()
     beers = beer_repo.select_all()
-    return render_template("keg/edit.jinja",kegs=kegs,beers=beers)
+    return render_template("keg/edit.jinja",kegs=kegs,beers=beers,chosen_keg = None)
 
 @keg_blueprint.route("/keg/all/")
 def inventory():

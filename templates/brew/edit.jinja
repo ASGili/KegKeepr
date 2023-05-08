@@ -6,21 +6,31 @@
 <label for="brewery">Choose a brewery to edit:</label>
 <select name="brewery" id="brewery">
     {% for brewery in breweries%}
-<option value="{{brewery.id}}">{{brewery.name}}</option>
+<option value="{{brewery.id}}"
+    {% if chosen_brewery != None and chosen_brewery.id == brewery.id %}
+    selected
+    {% endif %}> {{brewery.name}} 
+</option>
     {% endfor %}
 </select>
 <input type="submit"/>
 </form>
+<form action="/brew" method="get">
+    <input type="submit" value="Unselect Brewery">
+</form>
 
-<p>Or create a new brewery here:</p>
+
 <form action="/brew/new/" method="post"> 
-    <label>Brewery Name</label>  
         {% if not chosen_brewery %}
+        <p>Or create a new brewery here:</p>
+        <label>Enter New Brewery Name: </label>  
         <input name="name" type="text"/>
         <p><input type="submit" value="Save brewery"></p>
         <input type="hidden" name="brewery_id">
         {% endif %}        
+        
         {% if chosen_brewery %}
+        <label>Edit Brewery Name: </label>  
         <input name="name" type="text"
         value="{{chosen_brewery.name}}">
         <input type="hidden" name="brewery_id" value="{{chosen_brewery.id}}">
