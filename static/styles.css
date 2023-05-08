@@ -90,11 +90,7 @@ flex-direction: column;
     font-size: 300%;
 }
 
-.text_size {
-    font-size: 22px;
-}
-
 .align_form {
     display: flex;
-    align-content: center;
+    align-content: baseline;
 }

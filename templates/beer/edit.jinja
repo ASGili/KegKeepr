@@ -1,7 +1,7 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<div class="text_size">
+<section class="align_form">
 <form class="align_form" action="/beer/" method="post">
 <label for="beer">Choose a beer to edit:</label>
 <select name="beer" id="beer">
@@ -11,9 +11,14 @@
 </select>
 <input type="submit"/>
 </form>
-<p>Or create a new beer here:</p>
+<form class="align_form" action="/beer" method="get">
+    <input type="submit" value="Unselect Beer">
+</form>
+</section>
+
 <form action="/beer/new/" method="post"> 
         {% if not chosen_beer %}
+        <p>Or create a new beer here:</p>
         <p><label>Beer Name</label>  
         <input name="name" type="text"/></p>
         <p><label>Alcohol By Volume</label>
@@ -52,5 +57,5 @@
 <input name="name" type="submit" value="Delete beer">
 </form>
 {% endif %}
-</div>
+
 {% endblock %}

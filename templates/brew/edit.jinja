@@ -1,49 +1,46 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<div class="text_size">
-<form class="align_form" action="/brew/" method="post">
-<label for="brewery">Choose a brewery to edit:</label>
-<select name="brewery" id="brewery">
-    {% for brewery in breweries%}
-<option value="{{brewery.id}}"
-    {% if chosen_brewery != None and chosen_brewery.id == brewery.id %}
-    selected
-    {% endif %}> {{brewery.name}} 
-</option>
-    {% endfor %}
-</select>
-<input type="submit"/>
-</form>
-<form action="/brew" method="get">
-    <input type="submit" value="Unselect Brewery">
-</form>
-
+<section class="align_form">
+    <form class="align_form" action="/brew/" method="post">
+    <label for="brewery">Choose a brewery to edit:</label>
+    <select name="brewery" id="brewery">
+        {% for brewery in breweries%}
+    <option value="{{brewery.id}}"
+        {% if chosen_brewery != None and chosen_brewery.id == brewery.id %}
+        selected
+        {% endif %}> {{brewery.name}} 
+    </option>
+        {% endfor %}
+    </select>
+    <input type="submit"/>
+    </form>
+    <form class="align_form" action="/brew" method="get">
+        <input type="submit" value="Unselect Brewery">
+    </form>
+</section>
 
 <form action="/brew/new/" method="post"> 
-        {% if not chosen_brewery %}
+    {% if not chosen_brewery %}
         <p>Or create a new brewery here:</p>
         <label>Enter New Brewery Name: </label>  
         <input name="name" type="text"/>
         <p><input type="submit" value="Save brewery"></p>
         <input type="hidden" name="brewery_id">
-        {% endif %}        
+    {% endif %}        
         
-        {% if chosen_brewery %}
+    {% if chosen_brewery %}
         <label>Edit Brewery Name: </label>  
         <input name="name" type="text"
         value="{{chosen_brewery.name}}">
         <input type="hidden" name="brewery_id" value="{{chosen_brewery.id}}">
         <p><input type="submit" value="Update brewery"></p>
-        {% endif %}
+    {% endif %}
 </form>
 {% if chosen_brewery %}
-<form action="/brew/{{chosen_brewery.id}}/delete/" method="post">
-<input name="name" type="submit" value="Delete brewery">
-</form>
-</div>
+    <form action="/brew/{{chosen_brewery.id}}/delete/" method="post">
+        input name="name" type="submit" value="Delete brewery">
+    </form>
 {% endif %}
-
-
 
 {% endblock %}
