@@ -62,7 +62,7 @@ flex-direction: column;
 .keg_box {
     display: flex;
     padding: 10px;
-    border: 15px solid black;
+    border: 5px solid rgb(255, 0, 0);
     align-items: flex-start;
     justify-content: flex-start;
 }
@@ -73,9 +73,10 @@ flex-direction: column;
 }
 
 #warning {
+    display: flex;
     width: 30%;
-    padding: 10px;
-
+    padding: 50px;
+    flex-wrap: wrap;
 }
 
 #head_photo {
@@ -86,7 +87,6 @@ flex-direction: column;
 #big_warn {
     height: 120px;
     width: 120px;
-    padding-left: 25px;
     font-size: 300%;
 }
 
